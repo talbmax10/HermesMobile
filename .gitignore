@@ -1,0 +1,46 @@
+# Built application files
+*.apk
+*.aab
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Local configuration file (sdk location, etc.)
+local.properties
+
+# Maven
+.mvn/
+
+# Navigation editor
+.navigations/
+
+# Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Kotlin
+*.kotlin_module
+*.ktx
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets - NEVER COMMIT
+*.jks
+*.keystore
+key.properties
+
+# Firebase
+google-services.json
+
+# Version control
+.git/
