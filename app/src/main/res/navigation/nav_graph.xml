@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/agentFragment">
+
+    <fragment
+        android:id="@+id/agentFragment"
+        android:name="com.hermesmobile.ui.agent.AgentFragment"
+        android:label="@string/menu_agent"
+        tools:layout="@layout/fragment_agent" />
+
+    <fragment
+        android:id="@+id/projectsFragment"
+        android:name="com.hermesmobile.ui.projects.ProjectsFragment"
+        android:label="@string/menu_projects"
+        tools:layout="@layout/fragment_projects" />
+
+    <fragment
+        android:id="@+id/filesFragment"
+        android:name="com.hermesmobile.ui.files.FilesFragment"
+        android:label="@string/menu_files"
+        tools:layout="@layout/fragment_files" />
+
+    <fragment
+        android:id="@+id/terminalFragment"
+        android:name="com.hermesmobile.ui.terminal.TerminalFragment"
+        android:label="@string/menu_terminal"
+        tools:layout="@layout/fragment_terminal" />
+
+    <fragment
+        android:id="@+id/skillsFragment"
+        android:name="com.hermesmobile.ui.skills.SkillsFragment"
+        android:label="@string/menu_skills"
+        tools:layout="@layout/fragment_skills" />
+
+    <fragment
+        android:id="@+id/buildsFragment"
+        android:name="com.hermesmobile.ui.builds.BuildsFragment"
+        android:label="@string/menu_builds"
+        tools:layout="@layout/fragment_builds" />
+
+    <fragment
+        android:id="@+id/modelsFragment"
+        android:name="com.hermesmobile.ui.models.ModelsFragment"
+        android:label="@string/menu_models"
+        tools:layout="@layout/fragment_models" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.hermesmobile.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

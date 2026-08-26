@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Hermes Mobile</string>
     <string name="menu_agent">Agent</string>
@@ -12,4 +11,7 @@
     <string name="nav_header_title">Hermes Mobile</string>
     <string name="nav_header_subtitle">Your AI Agent Companion</string>
     <string name="welcome_message">Welcome to Hermes Mobile</string>
+    <string name="type_message">Type a message...</string>
+    <string name="send">Send</string>
+    <string name="agent_typing">Agent is typing...</string>
 </resources>
