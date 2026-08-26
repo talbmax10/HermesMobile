@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -18,7 +19,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:title="@string/app_name"
-            android:titleTextColor="@color/white"
+            android:titleTextColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +56,7 @@
                 android:maxLines="4"
                 android:padding="12dp"
                 android:background="@drawable/chat_input_background"
-                android:textColor="@color/black" />
+                android:textColor="?attr/colorOnSurface" />
 
             <ImageButton
                 android:id="@+id/sendButton"
