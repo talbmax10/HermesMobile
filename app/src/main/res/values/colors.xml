@@ -12,4 +12,7 @@
     <!-- Standard colors -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <!-- Additional colors for UI -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="on_surface_variant">#757575</color>
 </resources>

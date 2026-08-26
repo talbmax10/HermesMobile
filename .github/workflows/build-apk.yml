@@ -25,9 +25,20 @@ jobs:
           cache: 'gradle'
 
       - name: Set up Android SDK
+        id: android-sdk
         uses: android-actions/setup-android@v3
         with:
-          packages: 'platforms;android-34 build-tools;34.0.0'
+          api-level: 34
+          packages: |
+            platforms;android-34
+            build-tools;34.0.0
+
+      - name: Set ANDROID_HOME
+        run: echo "ANDROID_HOME=${{ steps.android-sdk.outputs.sdk-path }}" >> $GITHUB_ENV
+
+      - name: List Android SDK
+        run: |
+          sdkmanager --list
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
