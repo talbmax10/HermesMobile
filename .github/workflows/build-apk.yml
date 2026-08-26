@@ -25,18 +25,19 @@ jobs:
           cache: 'gradle'
 
       - name: Set up Android SDK
-        id: android-sdk
         uses: android-actions/setup-android@v3
         with:
           api-level: 34
-          packages: |
-            platforms;android-34
-            build-tools;34.0.0
 
-      - name: Set ANDROID_HOME
-        run: echo "ANDROID_HOME=${{ steps.android-sdk.outputs.sdk-path }}" >> $GITHUB_ENV
+      - name: Install platforms and build-tools
+        run: |
+          sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
-      - name: List Android SDK
+      - name: Accept licenses
+        run: |
+          yes | sdkmanager --licenses
+
+      - name: List installed packages
         run: |
           sdkmanager --list
 
