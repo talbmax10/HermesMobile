@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewChat"
@@ -13,9 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="16dp"
-        android:clipToPadding="false"
-        android:stackFromEnd="true"
-        android:transcriptMode="alwaysScroll" />
+        android:clipToPadding="false" />
 
     <LinearLayout
         android:id="@+id/layoutChatInput"

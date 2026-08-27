@@ -16,4 +16,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- AppBarOverlay theme for Toolbar -->
+    <style name="Theme.HermesMobile.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!-- PopupOverlay theme for Toolbar popups -->
+    <style name="Theme.HermesMobile.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
