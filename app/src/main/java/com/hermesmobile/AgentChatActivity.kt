@@ -1,10 +1,13 @@
 package com.hermesmobile
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +29,7 @@ class AgentChatActivity : AppCompatActivity() {
 
         // Setup RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        chatAdapter = ChatAdapter(mutableListOf())
+        chatAdapter = ChatAdapter()
         recyclerView.adapter = chatAdapter
 
         // Send button click
@@ -36,9 +39,8 @@ class AgentChatActivity : AppCompatActivity() {
                 // Add user message
                 chatAdapter.addMessage(ChatMessage(message, isUser = true))
                 editTextMessage.text.clear()
-                // Simulate bot response (for now just echo)
-                // In real implementation, we would call Hermes Agent here
-                post { 
+                // Simulate bot response (for now just echo) with a slight delay
+                editTextMessage.post {
                     chatAdapter.addMessage(ChatMessage(" recibido: $message", isUser = false))
                 }
             } else {
@@ -51,31 +53,30 @@ class AgentChatActivity : AppCompatActivity() {
     data class ChatMessage(val text: String, val isUser: Boolean)
 
     // Simple adapter for chat messages
-    inner class ChatAdapter(private var messages: List<ChatMessage>) :
+    inner class ChatAdapter :
         RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
-        inner class ChatViewHolder(val binding: androidx.databinding.ViewDataBinding) :
-            RecyclerView.ViewHolder(binding.root)
+        private val messages = mutableListOf<ChatMessage>()
 
-        // Since we are not using databinding for simplicity, we'll inflate layout manually
-        override fun onCreateViewHolder(parent: android.view.ViewGroup, viewType: Int): ChatViewHolder {
-            // Inflate a simple layout for chat item (we'll create it later)
-            val view = layoutInflater.inflate(R.layout.item_chat_message, parent, false)
-            return ChatViewHolder(androidx.databinding.DataBindingUtil.bind(view))
+        inner class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val textView: TextView = itemView.findViewById(R.id.textViewMessage)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_chat_message, parent, false)
+            return ChatViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
             val message = messages[position]
-            // For now we just set text via finding views by id (we'll implement properly later)
-            val textView = holder.itemView.findViewById<android.widget.TextView>(R.id.textViewMessage)
-            textView.text = message.text
-            // We could adjust gravity based on isUser, but skip for now
+            holder.textView.text = message.text
         }
 
         override fun getItemCount(): Int = messages.size
 
         fun addMessage(message: ChatMessage) {
-            messages += message
+            messages.add(message)
             notifyItemInserted(messages.lastIndex)
             recyclerView.scrollToPosition(messages.lastIndex)
         }
